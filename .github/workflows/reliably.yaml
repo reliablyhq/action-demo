@@ -1,0 +1,5 @@
+name: Reliably GH workflow demo
+on:
+  push:
+    branches:
+      - main
