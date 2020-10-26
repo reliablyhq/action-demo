@@ -20,7 +20,7 @@ jobs:
           repository: reliablyhq/opa-policies
           path: policies
       - name: 'Run Reliably'
-        uses: reliablyhq/gh-action@master
+        uses: reliablyhq/gh-action@main
         with:
           policies: 'policies/kubernetes'
           files: 'manifest.yaml'
