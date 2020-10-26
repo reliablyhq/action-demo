@@ -1,5 +1,26 @@
+---
 name: Reliably GH workflow demo
 on:
   push:
     branches:
       - main
+    paths:
+      - '**.yaml'
+      - '**.yml'
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v2
+      - name: 'Checkout OPA policies'
+        uses: actions/checkout@v2
+        with:
+          repository: reliablyhq/opa-policies
+          path: policies
+      - name: 'Run OPA Tests'
+        uses: b4b4r07/action-opa@master
+        with:
+          path: 'policies/kubernetes'
+          files: 'manifest.yaml'
