@@ -19,8 +19,8 @@ jobs:
         with:
           repository: reliablyhq/opa-policies
           path: policies
-      - name: 'Run OPA Tests'
-        uses: b4b4r07/action-opa@master
+      - name: 'Run Reliably'
+        uses: reliably/gh-action@master
         with:
-          path: 'policies/kubernetes'
+          policies: 'policies/kubernetes'
           files: 'manifest.yaml'
