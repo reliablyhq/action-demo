@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: action-demo
+  labels:
+    app: action-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: action-demo
+  template:
+    metadata:
+      labels:
+        app: action-demo
+    spec:
+      containers:
+      - name: action-demo
+        image: gtfisher/action-demo-service:v01
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-ingress
+spec:
+  selector:
+    app: action-demo
+  ports:
+    - port: 8080
+      targetPort: 8000
+  type: LoadBalancer
