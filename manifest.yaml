@@ -15,4 +15,4 @@ spec:
   restartPolicy: Never
   containers:
   - name: chaostoolkit
-    image: chaostoolkit/chaostoolkit:latest
+    image: chaostoolkit/chaostoolkit
