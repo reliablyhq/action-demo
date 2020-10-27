@@ -34,20 +34,33 @@ Run the Docker container using the command shown below.
 $ docker run -d -p 8000:8000 action-demo-service
 ```
 
-Pushed to docker hub with:
+Push to docker hub with:
 
+```bash
+docker tag {image_id} {docker_id}/action-demo-service:v01
+docker push {docker_id}/action-demo-service
+```
 
-docker tag <image_id> gtfisher/action-demo-service:v01
-docker push gtfisher/action-demo-service
+### Deploy on minikube
 
+Ensure you are there is nothing running in minikube
 
-deploy on minikube
+```bash
+minikube stop
+minikube delete
+```
+Startup minikube
 
-kubectl create deployment action-demo --image=gtfisher/action-demo-service:v01
+```bash
+minikube start
+```
 
-kubectl expose deployment action-demo --type=LoadBalancer --port=8000
+Deploy demo
 
-kubectl get services
+```kubctl apply -f manifest.yaml```
 
-minikube service action-demo
+```kubctl apply -f deployment.yaml```
 
+Open the service in a browser
+
+```minikube service action-demo```
