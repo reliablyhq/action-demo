@@ -1,5 +1,5 @@
----
-name: Reliably GH workflow demo
+name: "Reliably GH workflow demo"
+
 on:
   push:
     branches:
@@ -7,6 +7,8 @@ on:
     paths:
       - '**.yaml'
       - '**.yml'
+    paths-ignore:
+      - '.github/*'
 
 jobs:
   demo:
