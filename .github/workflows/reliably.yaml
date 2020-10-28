@@ -21,7 +21,7 @@ jobs:
           path: policies
       - name: 'Run Reliably'
         uses: reliablyhq/gh-action@main
-        continue-on-error: false
+        continue-on-error: true
         with:
           policies: 'policies/kubernetes'
           files: 'manifest.yaml'
