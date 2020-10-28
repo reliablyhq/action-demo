@@ -14,14 +14,8 @@ jobs:
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
-      - name: 'Checkout OPA policies'
-        uses: actions/checkout@v2
-        with:
-          repository: reliablyhq/opa-policies
-          path: policies
       - name: 'Run Reliably'
         uses: reliablyhq/gh-action@main
         continue-on-error: false
         with:
-          policies: 'policies/kubernetes'
           files: 'manifest.yaml'
