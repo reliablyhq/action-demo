@@ -20,10 +20,6 @@
                 "artifactLocation": {
                   "uri": "manifest.yaml",
                   "index": 0
-                },
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 9
                 }
               }
             }
@@ -40,10 +36,6 @@
                 "artifactLocation": {
                   "uri": "manifest.yaml",
                   "index": 0
-                },
-                "region": {
-                  "startLine": 18,
-                  "startColumn": 25
                 }
               }
             }
@@ -60,10 +52,6 @@
                 "artifactLocation": {
                   "uri": "manifest.yaml",
                   "index": 0
-                },
-                "region": {
-                  "startLine": 18,
-                  "startColumn": 12
                 }
               }
             }
