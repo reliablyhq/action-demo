@@ -9,3 +9,5 @@ To run Reliably, simply use the action within your Github workflow YAML file:
 - name: Reliably
   uses: reliablyhq/gh-action@main
 ```
+
+You can find more information on our action [repository](https://github.com/reliablyhq/gh-action).
