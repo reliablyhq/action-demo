@@ -1,0 +1,34 @@
+name: Install Reliably CLI example
+
+on: push
+
+jobs:
+  setup:
+    name: Setup Reliably
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: reliablyhq/gh-action/setup@main
+      - run: reliably --version
+      - run: reliably --help
+
+  setup-with-version:
+    name: Setup a specific version of Reliably
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: reliablyhq/gh-action/setup@main
+        id: reliably
+        with:
+          reliably-version: v0.1
+      - name: Installed Reliably version
+        run: echo "${{ steps.reliably.outputs.version }}"
+
+
+
