@@ -10,14 +10,28 @@ on:
       #- '**.yml'
 
 jobs:
-  demo:
+  basic-usage:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
       - name: 'Run Reliably'
         uses: reliablyhq/gh-action@main
-        # continue-on-error: true
+        #continue-on-error: true
+
+  code-scanning-usage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v2
+      - name: 'Run Reliably'
+        uses: reliablyhq/gh-action@main
+        continue-on-error: true
+        with:
+          args: "-f sarif -o reliably.sarif"
+      - name: Display Reliably SARIF report
+        run: |
+          cat reliably.sarif
       # - name: Upload result to GitHub Code Scanning
       #   uses: github/codeql-action/upload-sarif@v1
       #   with:
