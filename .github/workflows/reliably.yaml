@@ -33,7 +33,7 @@ jobs:
       - name: Display Reliably SARIF report
         run: |
           cat reliably.sarif
-      # - name: Upload result to GitHub Code Scanning
-      #   uses: github/codeql-action/upload-sarif@v1
-      #   with:
-      #     sarif_file: example.sarif
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: reliably.sarif
