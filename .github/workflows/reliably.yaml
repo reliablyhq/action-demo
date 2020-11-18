@@ -17,7 +17,8 @@ jobs:
         uses: actions/checkout@v2
       - name: 'Run Reliably'
         uses: reliablyhq/gh-action@main
-        #continue-on-error: true
+        # comment next line to fails the CI if issues are found
+        continue-on-error: true
 
   code-scanning-usage:
     runs-on: ubuntu-latest
