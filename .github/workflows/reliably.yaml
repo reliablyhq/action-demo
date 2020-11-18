@@ -28,7 +28,8 @@ jobs:
         uses: reliablyhq/gh-action@main
         continue-on-error: true
         with:
-          args: "-f sarif -o reliably.sarif"
+          format: "sarif"
+          output: "reliably.sarif"
       - name: Display Reliably SARIF report
         run: |
           cat reliably.sarif
