@@ -7,7 +7,7 @@ a simple [workflow](.github/workflows/reliably.yaml).
 To run Reliably, simply use the action within your Github workflow YAML file:
 ```yaml
 - name: Reliably
-  uses: reliablyhq/gh-action@main
+  uses: reliablyhq/gh-action@v1
 ```
 
 You can find more information on our action [repository](https://github.com/reliablyhq/gh-action).

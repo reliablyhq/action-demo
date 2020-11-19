@@ -16,7 +16,7 @@ jobs:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
       - name: 'Run Reliably'
-        uses: reliablyhq/gh-action@main
+        uses: reliablyhq/gh-action@v1
         # comment next line to fails the CI if issues are found
         continue-on-error: true
 
@@ -26,7 +26,7 @@ jobs:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
       - name: 'Run Reliably'
-        uses: reliablyhq/gh-action@main
+        uses: reliablyhq/gh-action@v1
         continue-on-error: true
         with:
           format: "sarif"
