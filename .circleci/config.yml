@@ -6,7 +6,7 @@ jobs:
     working_directory: /home
     steps:
       - checkout # check out the code in the project directory
-      - run: reliably discover /home
+      - run: reliably discover .
 
 workflows:
   reliably:
