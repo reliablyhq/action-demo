@@ -10,16 +10,7 @@ jobs:
       - checkout # check out the code in the project directory
       - run: reliably discover .
 
-  check_auth:
-    docker:
-      - image: ghcr.io/reliablyhq/cli/cli:latest
-        environment:
-          RELIABLY_TOKEN: $RELIABLY_TOKEN
-    steps:
-      - run: reliably auth status
-
 workflows:
   reliably:
     jobs:
       - discover
-      - check_auth
