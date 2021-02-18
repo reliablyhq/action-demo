@@ -1,0 +1,13 @@
+name: Check authenticated to Reliably
+
+on: push
+
+env:
+  RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+
+jobs:
+  check-auth-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: reliablyhq/gh-action/setup@v1
+      - run: reliably auth status
