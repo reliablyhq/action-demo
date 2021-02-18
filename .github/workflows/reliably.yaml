@@ -9,6 +9,9 @@ on:
       #- '**.yaml'
       #- '**.yml'
 
+env:
+  RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+
 jobs:
   basic-usage:
     runs-on: ubuntu-latest
