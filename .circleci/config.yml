@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  discover:
+  scan:
     docker:
       - image: ghcr.io/reliablyhq/cli/cli:latest
         environment:
@@ -8,9 +8,9 @@ jobs:
     working_directory: /home
     steps:
       - checkout # check out the code in the project directory
-      - run: reliably discover .
+      - run: reliably scan .
 
 workflows:
   reliably:
     jobs:
-      - discover
+      - scan
