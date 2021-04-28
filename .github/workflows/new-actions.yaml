@@ -29,6 +29,7 @@ jobs:
         uses: reliablyhq/actions/scan@v1
         env:
           RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+        continue-on-error: true
 
   slo-report:
     runs-on: ubuntu-latest
