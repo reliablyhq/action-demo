@@ -1,0 +1,41 @@
+name: Reliably Actions examples
+on: push
+
+jobs:
+  reliably:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Run Reliably CLI
+        uses: reliablyhq/actions@v1
+        env:
+          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+        with:
+          args: --help
+
+  setup-reliably:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: reliablyhq/gh-action/setup@v1
+      - run: reliably --version
+
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Run Reliably
+        uses: reliablyhq/actions/scan@v1
+        env:
+          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+
+  slo-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Run Reliably
+        uses: reliablyhq/actions/slo-report@v1
+        env:
+          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
