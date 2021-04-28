@@ -1,0 +1,21 @@
+services:
+
+- name: GCP dummy
+  service-levels:
+  - name: 90% of requests are Ok
+    type: availability
+    slo: 90
+    sli:
+    - id: alpha-azerty/google-cloud-load-balancers/dummy
+      provider: gcp
+
+- name: AWS dummy
+  service-levels:
+  - name: 95% of requests under 250ms
+    type: latency
+    criteria:
+      threshold: 250
+    slo: 95
+    sli:
+    - id: arn:aws:apigateway:eu-west-3:912823331559:/apis/this_is_not_a_valid_id
+      provider: aws
