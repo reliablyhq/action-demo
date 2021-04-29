@@ -4,15 +4,23 @@ on: push
 jobs:
   reliably:
     runs-on: ubuntu-latest
+    env:
+          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
       - name: Run Reliably CLI
         uses: reliablyhq/actions@v1
-        env:
-          RELIABLY_TOKEN: ${{ secrets.RELIABLY_TOKEN }}
+        with:
+          args: --version
+      - name: Run Reliably CLI
+        uses: reliablyhq/actions@v1
         with:
           args: --help
+      - name: Run Reliably CLI
+        uses: reliablyhq/actions@v1
+        with:
+          args: auth status
 
   setup-reliably:
     runs-on: ubuntu-latest
