@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@master
-      - uses: reliablyhq/gh-action/setup@v1
+      - uses: reliablyhq/actions/setup@v1
       - run: reliably --version
       - run: reliably --help
 
@@ -23,7 +23,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@master
-      - uses: reliablyhq/gh-action/setup@v1
+      - uses: reliablyhq/actions/setup@v1
         id: reliably
         with:
           reliably-version: v0.1.0
