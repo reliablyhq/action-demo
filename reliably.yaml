@@ -1,21 +1,28 @@
-services:
-
-- name: GCP dummy
-  service-levels:
-  - name: 90% of requests are Ok
-    type: availability
-    slo: 90
-    sli:
-    - id: alpha-azerty/google-cloud-load-balancers/dummy
-      provider: gcp
-
-- name: AWS dummy
-  service-levels:
-  - name: 95% of requests under 250ms
-    type: latency
-    criteria:
-      threshold: 250
-    slo: 95
-    sli:
-    - id: arn:aws:apigateway:eu-west-3:912823331559:/apis/this_is_not_a_valid_id
-      provider: aws
+apiVersion: reliably.com/v1
+kind: Objective
+metadata:
+  labels:
+    name: 90% of requests are Ok
+    service: GCP dummy
+spec:
+  indicatorSelector:
+    category: availability
+    gcp_loadbalancer_name: dummy
+    gcp_project_id: alpha-azerty
+  objectivePercent: 90
+  window: 1h0m0s
+---
+apiVersion: reliably.com/v1
+kind: Objective
+metadata:
+  labels:
+    name: 95% of requests under 250ms
+    service: AWS dummy
+spec:
+  indicatorSelector:
+    aws_arn: arn:aws:apigateway:eu-west-3:912823331559:/apis/this_is_not_a_valid_id
+    category: latency
+    latency_target: 250ms
+    percentile: "99"
+  objectivePercent: 95
+  window: 1h0m0s
